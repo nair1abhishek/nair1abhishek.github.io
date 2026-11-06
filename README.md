@@ -22,4 +22,4 @@ Write the article below the closing `---` using Markdown. The audience, descript
 
 Create a file in `_notes/` with the same front matter (audience is optional), followed by your note. Files appear automatically in their archive and on the home page, ordered by date. Use a unique, URL-friendly file name for each entry.
 
-The example files are marked `example: true`; remove or replace them when ready. See [the diagram style guide](https://nair1abhishek.github.io/style-guide/) for HTML diagram examples.
+The example files are marked `example: true`; remove or replace them when ready. Diagram instructions for agents are in `AGENTS.md`.

@@ -21,3 +21,6 @@ defaults:
     values:
       layout: entry
       kind: Note
+
+exclude:
+  - AGENTS.md
