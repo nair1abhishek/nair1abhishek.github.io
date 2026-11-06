@@ -1,0 +1,4 @@
+---
+layout: default
+---
+<article class="reading"><a class="back" href="{{ page.kind | downcase | append: 's/' | prepend: '/' | relative_url }}">← All {{ page.kind | downcase }}s</a><div class="kicker">{{ page.kind }}{% if page.example %} / example{% endif %}</div><h1>{{ page.title | escape }}</h1>{% if page.description %}<p class="lede">{{ page.description | escape }}</p>{% endif %}<div class="meta">{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.tags %} · {% for tag in page.tags %}<span>#{{ tag | escape }}</span> {% endfor %}{% endif %}</div>{% if page.audience %}<p class="audience"><strong>For:</strong> {{ page.audience | escape }}</p>{% endif %}<div class="prose">{{ content }}</div></article>

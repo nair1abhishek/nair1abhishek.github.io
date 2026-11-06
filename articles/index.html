@@ -1,0 +1,5 @@
+---
+layout: default
+title: Articles
+---
+<section class="section"><div class="kicker">01 / Long-form</div><h1 class="page-title">Articles<span class="accent">.</span></h1><p class="lede">Longer pieces, deep dives, and stories.</p>{% assign entries = site.articles | sort: 'date' | reverse %}{% include listing.html entries=entries %}</section>

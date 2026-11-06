@@ -1,0 +1,23 @@
+title: Abhishek's notes
+description: Articles and notes on learning and building.
+markdown: kramdown
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+  notes:
+    output: true
+    permalink: /notes/:name/
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: entry
+      kind: Article
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: entry
+      kind: Note
