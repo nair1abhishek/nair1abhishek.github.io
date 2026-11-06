@@ -1,6 +1,6 @@
 ---
 layout: default
+title: Articles
 ---
 <section class="hero"><div class="kicker">● A little corner of the internet</div><h1>Notes from<br><span>the command line.</span></h1><p class="lede">Ideas, experiments, and things learned along the way. Pull up a chair and stay curious.</p></section>
-<section class="section"><div class="section-head"><div><h2><span class="accent">01 /</span> Articles</h2><p class="subtle">Longer pieces, deep dives, and stories.</p></div><a href="{{ '/articles/' | relative_url }}">All articles →</a></div>{% assign entries = site.articles | sort: 'date' | reverse %}{% include listing.html entries=entries limit=3 %}</section>
-<section class="section"><div class="section-head"><div><h2><span class="accent">02 /</span> Notes</h2><p class="subtle">Small discoveries, saved as I learn.</p></div><a href="{{ '/notes/' | relative_url }}">All notes →</a></div>{% assign entries = site.notes | sort: 'date' | reverse %}{% include listing.html entries=entries limit=5 %}</section>
+<section class="section"><div class="section-head"><div><h2><span class="accent">01 /</span> Articles</h2><p class="subtle">Longer pieces, deep dives, and stories.</p></div></div>{% assign entries = site.articles | sort: 'date' | reverse %}{% include listing.html entries=entries %}</section>
