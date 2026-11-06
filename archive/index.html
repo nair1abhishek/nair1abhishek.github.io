@@ -1,0 +1,22 @@
+---
+layout: default
+title: Archive
+---
+<section class="section"><div class="kicker">03 / By date</div><h1 class="page-title">Archive<span class="accent">.</span></h1><p class="lede">Articles and notes, ordered by date.</p>
+<label for="archive-month">Filter by month</label> <input id="archive-month" type="month" aria-describedby="filter-help"> <button id="clear-filter" type="button">Clear</button>
+<p id="filter-help" class="subtle">Choose a month to narrow the list. Clear the filter to see everything.</p>
+{% assign entries = site.articles | concat: site.notes | sort: 'date' | reverse %}
+<ul class="listing" id="archive-list">{% for entry in entries %}<li data-month="{{ entry.date | date: '%Y-%m' }}"><time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%b %-d, %Y" }}</time><div><h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }} ↗</a></h3><p>{{ entry.kind | escape }}{% if entry.example %} · example{% endif %}{% if entry.description %} · {{ entry.description | escape }}{% endif %}</p></div></li>{% endfor %}</ul>
+<p id="no-results" hidden>No entries found for this month.</p><noscript><p class="subtle">The full chronological list is shown. Enable JavaScript to filter by month.</p></noscript></section>
+<script>
+const filter = document.getElementById('archive-month');
+const items = [...document.querySelectorAll('#archive-list li')];
+function updateArchive() {
+  let count = 0;
+  items.forEach(item => { const show = !filter.value || item.dataset.month === filter.value; item.hidden = !show; if (show) count++; });
+  document.getElementById('no-results').hidden = count > 0;
+}
+filter.addEventListener('input', updateArchive);
+document.getElementById('clear-filter').addEventListener('click', () => { filter.value = ''; updateArchive(); filter.focus(); });
+</script>
+<style>.listing li[hidden]{display:none} input[type=month],button{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:.45rem .6rem}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}</style>
